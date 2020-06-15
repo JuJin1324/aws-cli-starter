@@ -23,3 +23,6 @@ Default output format [None]: json
 * 그룹 확인: `aws iam list-groups --profile 프로파일명`
 * 그룹 추가: `aws iam create-group --group-name Administrator --profile 프로파일명`
 
+### Role
+* 롤 확인: `aws iam list-roles --profile 프로파일명`
+// * 롤 추가: `aws iam create-role --role-name 롤이름 --profile 프로파일명`
