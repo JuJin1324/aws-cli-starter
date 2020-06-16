@@ -25,4 +25,4 @@ Default output format [None]: json
 
 ### Role
 * 롤 확인: `aws iam list-roles --profile 프로파일명`  
-// * 롤 추가: `aws iam create-role --role-name 롤이름 --profile 프로파일명`
+* 롤 추가: `aws iam create-role --role-name 롤이름 --assume-role-policy-document file://Test-Role-Trust-Policy.json --profile 프로파일명`
