@@ -44,9 +44,6 @@
 > --profile <프로파일>
 > ```
 
-### Load Balancer
-> TODO
-
 ---
 
 ## Amazon RDS
@@ -58,3 +55,35 @@
 
 ### snapshot
 > 조회: `aws rds describe-db-snapshots`
+
+---
+
+## Amazon CloudWatch
+### dashboard
+> 목록 조회: `aws cloudwatch list-dashboards`  
+> 대시보드 조회: `aws cloudwatch get-dashboard --dashboard-name <대쉬보드 이름>`
+
+### metrics
+> 특정 EC2 서버의 CPU 사용률(CPUUtilization) 확인 예시 
+> ```shell
+> aws cloudwatch get-metric-statistics \
+> --namespace AWS/EC2 \
+> --metric-name CPUUtilization \
+> --dimensions Name=InstanceId,Value=<instance id 값> \
+> --statistics <Maximum | Average | 등> \
+> --start-time <yyyy-MM-ddTHH:mm:ss+09:00> \
+> --end-time <yyyy-MM-ddTHH:mm:ss+09:00> \
+> --period <표시 주기>
+> ```
+>
+> 특정 EC2 서버의 메모리 사용률 확인 예시
+> ```shell
+> aws cloudwatch get-metric-statistics \
+> --namespace CWAgent \
+> --metric-name mem_used_percent \
+> --dimensions Name=InstanceId,Value=<instance id 값> \
+> --statistics <Maximum | Average | 등> \
+> --start-time <yyyy-MM-ddTHH:mm:ss+09:00> \
+> --end-time <yyyy-MM-ddTHH:mm:ss+09:00> \
+> --period <표시 주기>
+> ```
